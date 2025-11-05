@@ -34,4 +34,4 @@ const upload = multer({
     fileFilter: fileFiltered
 })
 
-module.exports = upload
+export default upload  

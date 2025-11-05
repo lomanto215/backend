@@ -1,10 +1,10 @@
 import jwt from 'jsonwebtoken'
-import createEror from 'http-errors'
+import createError from 'http-errors'  // Perbaiki typo 'createEror' jadi 'createError'
 
-const protect = (req, res, next) => {
+export const protect = (req, res, next) => {  // ✅ Named export
     try {
         let token
-        if (req.headers,authorization) {
+        if (req.headers.authorization) {  // ✅ Perbaiki typo: authorization (bukan ,authorization)
             token = req.headers.authorization.split(' ')[1];
             let decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
             req.user = decoded;
@@ -26,5 +26,3 @@ const protect = (req, res, next) => {
         } 
     }
 }
-
-export default { protect }
